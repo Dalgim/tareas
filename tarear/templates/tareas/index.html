@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="container-fluid">
+        <nav class="navbar">
+            <h1> {% block title %} Lista de tareas {% endblock %} </h1>
+            <a href="{{ url_for('tarea.create') }}" class="btn btn-success"> Nuevo </a>
+        </nav>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col"> Tareas </th>
+                    <th class="col"> Estado </th>
+                    <th class="col"> Fecha Creacion </th>
+                    <th class="col" colspan="2"> Opciones </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- recorremos los registros de la BD y los ordenamos desde el ultimo registro ingresado -->
+                <!-- para ello usamos "reverse" -->
+                {% for t in tareas | reverse %}
+                <!-- Muestra solo las tareas del usuario logueado -->
+                {% if g.User.id == t.created_by %}
+                <tr>
+                    <td>
+                        <h5>{{ t.title }}</h5>
+                        <p> {{ t.desc }} </p>
+                    </td>
+                    <td>
+                        <!-- cambiamos estado de true o false, a completado o no completado-->
+                        {% if t.state == false %}
+                        <span class="text-warning"> Incompleto </span>
+                        {% else %}
+                        <span class="text-success"> Completado </span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ t.created_at }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('tarea.update', id = t.id)}}" class="btn btn-info btn-sm"> Editar </a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('tarea.delete', id = t.id)}}" class="btn btn-danger btn-sm"> Eliminar </a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    
+{% endblock %}

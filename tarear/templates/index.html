@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="conainer-sm text-center">
+        <!-- display-3 indica un texto grande pero algo separado -->
+        <h1 class="display-3"> Bienvenido a la lista de tareas </h1>
+        <p class="lead"> 
+            En este sitio puedes llevar un control de tareas, ya sea una vista general o poder
+            o bien poder editar o eliminar aquellas que ya no sean utiles
+        </p>
+        <hr class="my-4">
+        <p> Tienes una cuenta? </p>
+        <div class="d-flex justify-content-center">
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary mx-2"> Iniciar Sesion </a>
+            <a href="{{ url_for('auth.register') }}" class="btn btn-secondary mx-2"> Registrate </a>
+        </div>
+    </div>
+{% endblock %}
