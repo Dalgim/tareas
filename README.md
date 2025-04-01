@@ -3,7 +3,7 @@ agregar las variables en el path y quitar la seleccion de la opcion de tamañano
 
 1. Crear una carpeta donde se alojara el proyecto
 2. ejecutar git clone https://github.com/Dalgim/tareas.git
-3. abrir una terminal o en vscode y ejecutar el siguiente comando "python -m venv env-tareas" (windows) o "python3 -m venv env-tareas" (linux)
+3. abrir una terminal o en terminal de vscode y ejecutar el siguiente comando "python -m venv env-tareas" (windows) o "python3 -m venv env-tareas" (linux)
 4. ejecutar el entorno virtual con "env-tareas/Scripts/activate" (windows) ó "env-tareas/bin/activate" (linux)
 5. Verificamos con el comando "pip list" que aplicaciones tenemos en el entorno virtual
 6. en caso de ser necesario instalar la ultima version de pip con "python.exe -m pip install --upgrade pip"
